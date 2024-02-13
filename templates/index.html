@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Stats</title>
+</head>
+<body>
+    <h1>GitHub Stats</h1>
+
+    <form method="post" action="/">
+        <label for="username">Enter GitHub username:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Get Stats</button>
+    </form>
+
+    {% if user_data %}
+        <h2>User Information:</h2>
+        <p>Username: {{ user_data.login }}</p>
+        <p>Name: {{ user_data.name }}</p>
+        <p>Followers: {{ user_data.followers }}</p>
+        <p>Public Repositories: {{ user_data.public_repos }}</p>
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
+
